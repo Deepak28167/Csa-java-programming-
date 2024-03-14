@@ -1,0 +1,47 @@
+
+public class Clock {
+    private int hours;
+    private int minutes;
+    private int seconds;
+    private boolean isAM; 
+
+
+    public Clock(int hours, int minutes, int seconds) {
+        if (isValidTime(hours, minutes, seconds)) {
+            this.hours = hours;
+            this.minutes = minutes;
+            this.seconds = seconds;
+            setAMPM(hours);
+        } else {
+            System.out.println("Invalid time provided.");
+        }
+    }
+
+    
+    private boolean isValidTime(int hours, int minutes, int seconds) {
+        return (hours >= 0 && hours <= 23) &&
+               (minutes >= 0 && minutes <= 59) &&
+               (seconds >= 0 && seconds <= 59);
+    }
+
+  
+    private void setAMPM(int hours) {
+        isAM = (hours >= 0 && hours < 12);
+    }
+
+   
+    public void displayTime() {
+        System.out.printf("Time: %02d:%02d:%02d %s\n", hours, minutes, seconds, (isAM ? "AM" : "PM"));
+    }
+
+    public static void main(String[] args) {
+        
+        Clock clock1 = new Clock(10, 30, 45);
+        clock1.displayTime(); // Time: 10:30:45 AM
+
+        Clock clock2 = new Clock(18, 45, 20);
+        clock2.displayTime(); // Time: 06:45:20 PM
+
+        Clock invalidClock = new Clock(25, 70, 80); // Attempt to create an invalid time
+    }
+}
