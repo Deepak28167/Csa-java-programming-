@@ -1,0 +1,35 @@
+class MyClass {
+    int a;
+    int b;
+
+    // Default constructor
+    MyClass() {
+        this.a = 10;
+        this.b = 15;
+    }
+
+    // Parameterized constructor
+    MyClass(int a, int b) {
+        this.a = a;
+        this.b = b;
+    }
+
+    // Method to display values
+    void disp() {
+        System.out.println("a = " + this.a + ", b = " + this.b);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        // Creating object using default constructor
+        MyClass obj1 = new MyClass();
+        System.out.println("Values from default constructor:");
+        obj1.disp();
+
+        // Creating object using parameterized constructor
+        MyClass obj2 = new MyClass(20, 25);
+        System.out.println("\nValues from parameterized constructor:");
+        obj2.disp();
+    }
+}
